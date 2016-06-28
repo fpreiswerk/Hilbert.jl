@@ -17,7 +17,7 @@ y = hilbert(x)
 """
 function hilbert(x, n=Int64[])
 
-  if(!(eltype(x) <: Number) || eltype(x) <: Complex )
+  if(!(eltype(x) <: Number))
     error("Only numerical input is supported")
   elseif(length(size(x))>2)
     error("Only vectors and matrices are supported")
