@@ -18,7 +18,7 @@ y = hilbert(x)
 function hilbert(x, n=Int64[])
 
   if(!(eltype(x) <: Number) || eltype(x) <: Complex )
-    error("Only real numbers are supported")
+    error("Only numerical input is supported")
   elseif(length(size(x))>2)
     error("Only vectors and matrices are supported")
   end
@@ -27,7 +27,7 @@ function hilbert(x, n=Int64[])
 
   if(eltype(x_) <: Complex)
     warn("Using real part, ignoring complex part")
-    x_ = abs(x_)
+    x_ = real(x_)
   end
 
   # work along columns
