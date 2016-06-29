@@ -15,7 +15,12 @@ y = hilbert(x)
 
 `hilbert(x,n)` computes the n-point Hilbert transform.
 """
-function hilbert(x, n=Int64[])
+function hilbert{T<:Real}(x::AbstractArray{T,2}, n::Int64=0)
+
+@show n
+@show typeof(n)
+@show size(n)
+
 
   if(!(eltype(x) <: Number))
     error("Only numerical input is supported")
@@ -33,10 +38,9 @@ function hilbert(x, n=Int64[])
   # work along columns
   size(x_,1)==1 ? x_ = permutedims(x_,[2 1]) : nothing
 
-  #isempty(n) ? n = size(x_,1) : nothing
-  if(!isempty(n) && n<size(x_,1))
+  if(n>0 && n<size(x_,1))
     x_ = x_[1:n,:]
-  elseif(!isempty(n) && n>size(x_,1))
+  elseif(n>0 && n>size(x_,1))
     x_ = cat(1,x_,zeros(n-size(x_,1),size(x_,2)))
   else
     n = size(x_,1)
@@ -62,5 +66,9 @@ function hilbert(x, n=Int64[])
 
 end
 
+function hilbert{T<:Complex}(x::AbstractArray{T}, n::Int64=0)
+  warn("Using real part, ignoring complex part")
+  Hilbert.hilbert(real(x))
+end
 
 end # module
