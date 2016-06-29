@@ -17,17 +17,6 @@ y = hilbert(x)
 """
 function hilbert{T<:Real}(x::AbstractArray{T,2}, n::Int64=0)
 
-@show n
-@show typeof(n)
-@show size(n)
-
-
-  if(!(eltype(x) <: Number))
-    error("Only numerical input is supported")
-  elseif(length(size(x))>2)
-    error("Only vectors and matrices are supported")
-  end
-
   x_ = copy(x)
 
   if(eltype(x_) <: Complex)
