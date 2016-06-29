@@ -1,19 +1,19 @@
 module Hilbert
 
 """
-    hilbert(x, n=Int64[])
+    hilbert(x)
+    hilbert(x, n)
 Analytic signal, computed using the Hilbert transform.
 `y = hilbert(x)` gives the analytic signal `y = x + i*xi` where `xi` is the
 Hilbert transform of vector `x`. If `x` is complex, only the real part is used.
-If `x` is a matrix, then `hilbert` operates along columns.
+If `x` is a matrix, then `hilbert` operates along columns. If n is provided, the
+n-point Hilbert transform is computed.
 
 **Example**
 ```julia
 x = randn(10,10)
 y = hilbert(x)
 ```
-
-`hilbert(x,n)` computes the n-point Hilbert transform.
 """
 function hilbert{T<:Real}(x::AbstractArray{T,2}, n::Int64=0)
 
