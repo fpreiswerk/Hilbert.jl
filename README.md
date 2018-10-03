@@ -1,10 +1,7 @@
 # Hilbert.jl
 
-.. image:: https://travis-ci.com/fpreiswerk/Hilbert.jl.svg?branch=master
-    :target: https://travis-ci.com/fpreiswerk/Hilbert.jl
-
-.. image:: https://travis-ci.com/fpreiswerk/Hilbert.jl.svg?branch=v1.0
-    :target: https://travis-ci.com/fpreiswerk/Hilbert.jl
+master: ![master](https://travis-ci.com/fpreiswerk/Hilbert.jl.svg?branch=master)
+v1.0: ![v1.0](https://travis-ci.com/fpreiswerk/Hilbert.jl.svg?branch=v1.0)
     
 Compute the Hilbert transform of a signal in Julia.
 
